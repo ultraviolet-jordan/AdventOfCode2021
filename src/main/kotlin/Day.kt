@@ -2,8 +2,8 @@
  * @author Jordan Abraham
  */
 interface Day<T, R> {
-    fun solveSolution1(input: T): R
-    fun solveSolution2(input: T): R
+    fun solvePart1(input: T): R
+    fun solvePart2(input: T): R
 }
 
 inline fun <reified T> listOf(resource: String): List<T> {
