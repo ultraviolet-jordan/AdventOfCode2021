@@ -13,20 +13,7 @@ class Day1Test {
     fun `test example 1`() {
         assertEquals(
             7,
-            Day1().solveSolution1(
-                listOf(
-                    199,
-                    200,
-                    208,
-                    210,
-                    200,
-                    207,
-                    240,
-                    269,
-                    260,
-                    263
-                )
-            )
+            Day1().solveSolution1(intListOf<Day1>("/day1/example.txt"))
         )
     }
 
@@ -34,20 +21,7 @@ class Day1Test {
     fun `test example 2`() {
         assertEquals(
             5,
-            Day1().solveSolution2(
-                listOf(
-                    199,
-                    200,
-                    208,
-                    210,
-                    200,
-                    207,
-                    240,
-                    269,
-                    260,
-                    263
-                )
-            )
+            Day1().solveSolution2(intListOf<Day1>("/day1/example.txt"))
         )
     }
 
