@@ -7,13 +7,15 @@ import Day
  */
 class Day1: Day<List<Int>, Int> {
 
-    override fun solveSolution1(input: List<Int>): Int = buildMap {
-        input.forEachIndexed { index, value -> put(index, value) }
-    }.count()
+    override fun solveSolution1(input: List<Int>): Int = input.mapIndexed { index, value -> index to value }
+        .toMap()
+        .count()
 
-    override fun solveSolution2(input: List<Int>): Int = buildMap {
-        input.windowed(3).forEach { put(size, it.sum()) }
-    }.count()
+    override fun solveSolution2(input: List<Int>): Int = input.windowed(3)
+        .mapIndexed { index, list -> index to list }
+        .associateBy({it.first}, {it.second.sum()})
+        .toMap()
+        .count()
 }
 
 fun Map<Int, Int>.count(): Int = count { it.value > (this[it.key - 1] ?: 0) } - 1

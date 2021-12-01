@@ -6,4 +6,11 @@ interface Day<T, R> {
     fun solveSolution2(input: T): R
 }
 
-inline fun <reified T> intListOf(fileName: String): List<Int> = T::class.java.getResourceAsStream(fileName)!!.bufferedReader().lines().map { it.toInt() }.toList()
+inline fun <reified T> listOf(resource: String): List<T> {
+    return Day::class.java.getResourceAsStream(resource)!!.bufferedReader().lines().map {
+        when (T::class) {
+            Int::class -> it.toInt() as T
+            else -> throw RuntimeException("Exception caught because of an unknown type.")
+        }
+    }.toList()
+}
