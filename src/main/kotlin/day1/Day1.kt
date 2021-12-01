@@ -5,7 +5,7 @@ import Day
 /**
  * @author Jordan Abraham
  */
-class Day1: Day<List<Int>, Int> {
+class Day1: Day<Int> {
 
     override fun solveSolution1(input: List<Int>): Int {
         return buildMap {

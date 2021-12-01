@@ -1,5 +1,6 @@
 package day1
 
+import intListOf
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -54,9 +55,7 @@ class Day1Test {
     fun `test solution 1`() {
         assertEquals(
             1521,
-            Day1().solveSolution1(
-                this::class.java.getResourceAsStream("/day1/input.txt")!!.bufferedReader().readLines().map { it.toInt() }
-            )
+            Day1().solveSolution1(intListOf<Day1>("/day1/input.txt"))
         )
     }
 
@@ -64,9 +63,7 @@ class Day1Test {
     fun `test solution 2`() {
         assertEquals(
             1543,
-            Day1().solveSolution2(
-                this::class.java.getResourceAsStream("/day1/input.txt")!!.bufferedReader().readLines().map { it.toInt() }
-            )
+            Day1().solveSolution2(intListOf<Day1>("/day1/input.txt"))
         )
     }
 }
