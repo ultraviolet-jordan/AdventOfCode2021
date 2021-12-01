@@ -9,33 +9,64 @@ import kotlin.test.assertEquals
 class Day1Test {
 
     @Test
-    fun `test solution 1`() {
-        with(this::class.java.getResourceAsStream("/day1/input.txt")!!.bufferedReader().readLines()) {
-            with(buildMap {
-                forEachIndexed { index, string ->
-                    put(index, string.toInt())
-                }
-            }) {
-                assertEquals(
-                    count { it.value > (this[it.key - 1] ?: 0) } - 1,
-                    1521
+    fun `test example 1`() {
+        assertEquals(
+            7,
+            Day1().solveSolution1(
+                listOf(
+                    199,
+                    200,
+                    208,
+                    210,
+                    200,
+                    207,
+                    240,
+                    269,
+                    260,
+                    263
                 )
-            }
-        }
+            )
+        )
+    }
+
+    @Test
+    fun `test example 2`() {
+        assertEquals(
+            5,
+            Day1().solveSolution2(
+                listOf(
+                    199,
+                    200,
+                    208,
+                    210,
+                    200,
+                    207,
+                    240,
+                    269,
+                    260,
+                    263
+                )
+            )
+        )
+    }
+
+    @Test
+    fun `test solution 1`() {
+        assertEquals(
+            1521,
+            Day1().solveSolution1(
+                this::class.java.getResourceAsStream("/day1/input.txt")!!.bufferedReader().readLines().map { it.toInt() }
+            )
+        )
     }
 
     @Test
     fun `test solution 2`() {
-        val lines = this::class.java.getResourceAsStream("/day1/input.txt")!!.bufferedReader().readLines()
-        with(buildMap {
-            lines.windowed(3).forEach {
-                put(size, it.sumOf { v -> v.toInt() })
-            }
-        }) {
-            assertEquals(
-                count { it.value > (this[it.key - 1] ?: 0) } - 1,
-                1543
+        assertEquals(
+            1543,
+            Day1().solveSolution2(
+                this::class.java.getResourceAsStream("/day1/input.txt")!!.bufferedReader().readLines().map { it.toInt() }
             )
-        }
+        )
     }
 }
