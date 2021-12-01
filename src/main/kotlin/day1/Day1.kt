@@ -18,4 +18,4 @@ class Day1: Day<List<Int>, Int> {
         .count()
 }
 
-fun Map<Int, Int>.count(): Int = count { it.value > (this[it.key - 1] ?: 0) } - 1
+private fun Map<Int, Int>.count(): Int = count { it.value > (this[it.key - 1] ?: 0) } - 1
