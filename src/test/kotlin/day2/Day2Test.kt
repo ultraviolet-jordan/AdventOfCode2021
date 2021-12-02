@@ -18,7 +18,9 @@ class Day2Test {
         val time = measureTimeMillis {
             assertEquals(
                 150,
-                Day2().solvePart1(listOf("/day2/example.txt"))
+                Day2().solvePart1(
+                    Submarine(splitOf(listOf("/day2/example.txt")))
+                )
             )
         }
         logger<Day2Test>().log(INFO, timeOf(time))
@@ -29,7 +31,9 @@ class Day2Test {
         val time = measureTimeMillis {
             assertEquals(
                 900,
-                Day2().solvePart2(listOf("/day2/example.txt"))
+                Day2().solvePart2(
+                    Submarine(splitOf(listOf("/day2/example.txt")), true)
+                )
             )
         }
         logger<Day2Test>().log(INFO, timeOf(time))
@@ -40,7 +44,9 @@ class Day2Test {
         val time = measureTimeMillis {
             assertEquals(
                 1427868,
-                Day2().solvePart1(listOf("/day2/input.txt"))
+                Day2().solvePart1(
+                    Submarine(splitOf(listOf("/day2/input.txt")))
+                )
             )
         }
         logger<Day2Test>().log(INFO, timeOf(time))
@@ -51,9 +57,13 @@ class Day2Test {
         val time = measureTimeMillis {
             assertEquals(
                 1568138742,
-                Day2().solvePart2(listOf("/day2/input.txt"))
+                Day2().solvePart2(
+                    Submarine(splitOf(listOf("/day2/input.txt")), true)
+                )
             )
         }
         logger<Day2Test>().log(INFO, timeOf(time))
     }
 }
+
+private fun splitOf(list: List<String>): List<List<String>> = list.map { it.split(" ") }
