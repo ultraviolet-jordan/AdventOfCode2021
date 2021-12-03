@@ -18,7 +18,7 @@ class Day1Test {
         val time = measureTimeMillis {
             assertEquals(
                 7,
-                Day1().solvePart1(listOf("/day1/example.txt"))
+                Day1.solvePart1(listOf("/day1/example.txt"))
             )
         }
         logger<Day1Test>().log(INFO, timeOf(time))
@@ -29,7 +29,7 @@ class Day1Test {
         val time = measureTimeMillis {
             assertEquals(
                 5,
-                Day1().solvePart2(listOf("/day1/example.txt"))
+                Day1.solvePart2(listOf("/day1/example.txt"))
             )
         }
         logger<Day1Test>().log(INFO, timeOf(time))
@@ -40,7 +40,7 @@ class Day1Test {
         val time = measureTimeMillis {
             assertEquals(
                 1521,
-                Day1().solvePart1(listOf("/day1/input.txt"))
+                Day1.solvePart1(listOf("/day1/input.txt"))
             )
         }
         logger<Day1Test>().log(INFO, timeOf(time))
@@ -51,7 +51,7 @@ class Day1Test {
         val time = measureTimeMillis {
             assertEquals(
                 1543,
-                Day1().solvePart2(listOf("/day1/input.txt"))
+                Day1.solvePart2(listOf("/day1/input.txt"))
             )
         }
         logger<Day1Test>().log(INFO, timeOf(time))
