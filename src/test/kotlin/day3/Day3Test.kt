@@ -26,11 +26,33 @@ class Day3Test {
     }
 
     @Test
+    fun `test example 2`() {
+        val time = measureTimeMillis {
+            assertEquals(
+                230,
+                Day3.part2(listOf("/day3/example.txt"))
+            )
+        }
+        logger<Day3Test>().log(INFO, timeOf(time))
+    }
+
+    @Test
     fun `test solution 1`() {
         val time = measureTimeMillis {
             assertEquals(
                 3309596,
                 Day3.part1(listOf("/day3/input.txt"))
+            )
+        }
+        logger<Day3Test>().log(INFO, timeOf(time))
+    }
+
+    @Test
+    fun `test solution 2`() {
+        val time = measureTimeMillis {
+            assertEquals(
+                2981085,
+                Day3.part2(listOf("/day3/input.txt"))
             )
         }
         logger<Day3Test>().log(INFO, timeOf(time))
