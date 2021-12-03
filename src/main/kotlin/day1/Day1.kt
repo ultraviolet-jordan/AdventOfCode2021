@@ -7,11 +7,11 @@ import Day
  */
 object Day1: Day<List<Int>, Int> {
 
-    override fun solvePart1(input: List<Int>): Int = input.mapIndexed { index, value -> index to value }
+    override fun part1(input: List<Int>): Int = input.mapIndexed { index, value -> index to value }
         .toMap()
         .countByLast()
 
-    override fun solvePart2(input: List<Int>): Int = input.windowed(3)
+    override fun part2(input: List<Int>): Int = input.windowed(3)
         .mapIndexed { index, list -> index to list }
         .associateBy({it.first}, {it.second.sum()})
         .toMap()

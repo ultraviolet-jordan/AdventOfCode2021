@@ -7,11 +7,11 @@ import Day
  */
 object Day3: Day<List<Int>, Int> {
 
-    override fun solvePart1(input: List<Int>): Int {
+    override fun part1(input: List<Int>): Int {
         TODO("Not yet implemented")
     }
 
-    override fun solvePart2(input: List<Int>): Int {
+    override fun part2(input: List<Int>): Int {
         TODO("Not yet implemented")
     }
 }

@@ -18,7 +18,7 @@ class Day2Test {
         val time = measureTimeMillis {
             assertEquals(
                 150,
-                Day2.solvePart1(
+                Day2.part1(
                     Submarine(splitOf(listOf("/day2/example.txt")))
                 )
             )
@@ -31,7 +31,7 @@ class Day2Test {
         val time = measureTimeMillis {
             assertEquals(
                 900,
-                Day2.solvePart2(
+                Day2.part2(
                     Submarine(splitOf(listOf("/day2/example.txt")), true)
                 )
             )
@@ -44,7 +44,7 @@ class Day2Test {
         val time = measureTimeMillis {
             assertEquals(
                 1427868,
-                Day2.solvePart1(
+                Day2.part1(
                     Submarine(splitOf(listOf("/day2/input.txt")))
                 )
             )
@@ -57,7 +57,7 @@ class Day2Test {
         val time = measureTimeMillis {
             assertEquals(
                 1568138742,
-                Day2.solvePart2(
+                Day2.part2(
                     Submarine(splitOf(listOf("/day2/input.txt")), true)
                 )
             )
