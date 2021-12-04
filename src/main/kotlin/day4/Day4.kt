@@ -18,9 +18,7 @@ object Day4 : Day<List<String>, Int> {
         }
 
         callNumbers.forEach { number ->
-            boards.forEach { board ->
-                board.mark(number)
-            }
+            boards.forEach { it.mark(number) }
             val winners = checkWinners(boards)
             if (winners.isNotEmpty()) {
                 return winners.first().sum() * number
@@ -46,9 +44,7 @@ object Day4 : Day<List<String>, Int> {
                 return winningBoards.last().sum() * callNumbers[index - 1]
             }
 
-            boards.forEach { board ->
-                board.mark(number)
-            }
+            boards.forEach { it.mark(number) }
             val winners = checkWinners(boards).filter { winningBoards.contains(it).not() }
             if (winners.isNotEmpty()) {
                 winningBoards.addAll(winners)
@@ -58,14 +54,5 @@ object Day4 : Day<List<String>, Int> {
         return 0
     }
 
-    private fun checkWinners(boards: List<BingoBoard>): List<BingoBoard> {
-        val winners = buildList {
-            boards.forEach {
-                if (it.checkRowForWin() || it.checkColumnForWin()) {
-                    add(it)
-                }
-            }
-        }.distinct()
-        return winners
-    }
+    private fun checkWinners(boards: List<BingoBoard>): List<BingoBoard> = boards.filter { it.checkRowForWin() || it.checkColumnForWin() }.distinct()
 }
