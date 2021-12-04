@@ -17,9 +17,8 @@ class BingoBoard(
 
     fun checkRowForWin(): Boolean = board.any { list -> list.count { it == -1 } == 5 }
 
-    fun checkColumnForWin(): Boolean {
-        val indices = 0 until 5
-        return indices.any { column -> indices.all { row -> board[row][column] == -1 } }
+    fun checkColumnForWin(): Boolean = with(0 until 5) {
+        any { column -> all { row -> board[row][column] == -1 } }
     }
 
     fun sum(): Int = board.sumOf { list -> list.sumOf { if (it == -1) 0 else it } }
