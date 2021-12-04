@@ -15,24 +15,12 @@ class BingoBoard(
         }
     }
 
-    fun checkRowForWin(): Boolean {
-        board.forEach { list ->
-            if (list.count { it == -1 } == 5) return true
-        }
-        return false
-    }
+    fun checkRowForWin(): Boolean = board.any { list -> list.count { it == -1 } == 5 }
 
     fun checkColumnForWin(): Boolean {
-        repeat(5) { digit ->
-            val list = buildList {
-                repeat(5) { row ->
-                    add(board[row][digit])
-                }
-            }
-            if (list.count { it == -1 } == 5) return true
-        }
-        return false
+        val indices = 0 until 5
+        return indices.any { column -> indices.all { row -> board[row][column] == -1 } }
     }
 
-    fun sum(): Int = board.sumOf { it.filter { v -> v != -1 }.sum() }
+    fun sum(): Int = board.sumOf { list -> list.sumOf { if (it == -1) 0 else it } }
 }
