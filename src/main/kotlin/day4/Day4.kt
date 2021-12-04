@@ -35,7 +35,7 @@ object Day4 : Day<List<String>, Int> {
             }
 
             boards.forEach { it.mark(number) }
-            val winners = checkWinners(boards).filter { winningBoards.contains(it).not() }
+            val winners = checkWinners(boards).filter { it !in winningBoards }
             if (winners.isNotEmpty()) {
                 winningBoards.addAll(winners)
             }
