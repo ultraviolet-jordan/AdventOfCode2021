@@ -64,6 +64,6 @@ class Day2Test {
         }
         logger<Day2Test>().log(INFO, timeOf(time))
     }
-}
 
-private fun splitOf(list: List<String>): List<List<String>> = list.map { it.split(" ") }
+    private fun splitOf(list: List<String>): List<List<String>> = list.map { it.split(" ") }
+}
