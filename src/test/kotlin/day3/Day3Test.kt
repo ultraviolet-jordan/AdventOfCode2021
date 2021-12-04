@@ -1,6 +1,5 @@
 package day3
 
-import day1.Day1Test
 import listOf
 import logger
 import timeOf
