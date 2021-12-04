@@ -1,7 +1,7 @@
 package day3
 
 import Day
-import java.util.Collections.frequency
+import java.util.*
 
 /**
  * @author Jordan Abraham
@@ -44,17 +44,19 @@ object Day3 : Day<List<String>, Int> {
 
     private fun List<String>.toComparedBit(index: Int): Int = with(map { it[index].digitToInt() }) {
         when {
-            frequency(this, 0) == frequency(this, 1) -> 1
-            frequency(this, 0) > frequency(this, 1) -> 0
+            frequency(0) == frequency(1) -> 1
+            frequency(0) > frequency(1) -> 0
             else -> 1
         }
     }
 
     private fun List<String>.toComparedBitInv(index: Int): Int = with(map { it[index].digitToInt() }) {
         when {
-            frequency(this, 0) == frequency(this, 1) -> 0
-            frequency(this, 0) < frequency(this, 1) -> 0
+            frequency(0) == frequency(1) -> 0
+            frequency(0) < frequency(1) -> 0
             else -> 1
         }
     }
+
+    private fun List<Int>.frequency(value: Int) = Collections.frequency(this, value)
 }
