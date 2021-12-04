@@ -7,9 +7,9 @@ class Submarine(
     commands: List<List<String>>,
     private val aiming: Boolean = false
 ) {
-    var horizontal: Int = 0
-    var depth: Int = 0
-    var aim: Int = 0
+    var horizontal = 0
+    var depth = 0
+    var aim = 0
 
     init {
         commands.forEach {
