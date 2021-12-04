@@ -7,7 +7,7 @@ class BingoBoard(
     boardId: Int,
     boardNumbers: List<String>
 ) {
-    private val board = boardNumbers.subList(boardId * 5, (boardId * 5) + 5).map { v -> v.trimStart().replace("\\s\\s".toRegex(), " ").split("\\s".toRegex()).map { s -> s.toInt() }.toMutableList() }.toList()
+    private val board = boardNumbers.subList(boardId * 5, (boardId * 5) + 5).map { it.trimStart().split(Regex("\\s+")).map { string -> string.toInt() }.toMutableList() }.toList()
 
     fun mark(call: Int) {
         board.forEach {
