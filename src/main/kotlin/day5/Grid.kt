@@ -40,5 +40,5 @@ class Grid(
     private fun diagonal(first: Point, second: Point): Boolean = first.x != second.x && first.y != second.y
     private fun rangeX(first: Point, second: Point): IntRange = (min(first.x, second.x)..max(first.x, second.x))
     private fun rangeY(first: Point, second: Point): IntRange = (min(first.y, second.y)..max(first.y, second.y))
-    private fun nextY(first: Point, second: Point, index: Int): Int = if (second.y >= first.y) first.y + index else first.y - index
+    private fun nextY(first: Point, second: Point, index: Int): Int = if (second.y > first.y) first.y + index else first.y - index
 }
