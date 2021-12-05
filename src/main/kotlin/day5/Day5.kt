@@ -13,10 +13,8 @@ object Day5 : Day<List<String>, Int> {
         return with(Grid(points.maxOf())) {
             points.forEach {
                 traverseAndPlot(
-                    it.first().split(",").first().toInt(),
-                    it.first().split(",").last().toInt(),
-                    it.last().split(",").first().toInt(),
-                    it.last().split(",").last().toInt()
+                    it.first().toPoint(),
+                    it.last().toPoint()
                 )
             }
             numberOfOverlappingLines()
@@ -28,10 +26,8 @@ object Day5 : Day<List<String>, Int> {
         return with(Grid(points.maxOf())) {
             points.forEach {
                 traverseAndPlot(
-                    it.first().split(",").first().toInt(),
-                    it.first().split(",").last().toInt(),
-                    it.last().split(",").first().toInt(),
-                    it.last().split(",").last().toInt(),
+                    it.first().toPoint(),
+                    it.last().toPoint(),
                     true
                 )
             }
@@ -41,4 +37,5 @@ object Day5 : Day<List<String>, Int> {
 
     private fun List<String>.toGridPoints(): List<List<String>> = map { it.split(Regex("\\s->\\s")) }
     private fun List<List<String>>.maxOf(): Int = (map { max(it.first().split(",").first().toInt(), it.last().split(",").first().toInt()) }.maxOrNull() ?: 0) + 1
+    private fun String.toPoint(): Point = Point(split(",").first().toInt(), split(",").last().toInt())
 }

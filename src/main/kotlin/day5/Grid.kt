@@ -12,26 +12,24 @@ class Grid(
     private val sheet = Array(size) { IntArray(size) { 0 } }
 
     fun traverseAndPlot(
-        x1: Int,
-        y1: Int,
-        x2: Int,
-        y2: Int,
+        first: Point,
+        second: Point,
         traverseDiagonally: Boolean = false
     ) {
-        val diagonal = diagonal(x1, y1, x2, y2)
+        val diagonal = diagonal(first, second)
         if (diagonal && traverseDiagonally.not()) return
         if (diagonal) {
-            var x = x1
-            var y = y1
+            var x = first.x
+            var y = first.y
             while (true) {
                 sheet[y][x] += 1
-                if (x == x2) break
-                x = if (x2 > x) ++x else --x
-                y = if (y2 > y) ++y else --y
+                if (x == second.x) break
+                x = if (second.x > x) ++x else --x
+                y = if (second.y > y) ++y else --y
             }
         } else {
-            (min(x1, x2)..max(x1, x2)).forEach { x ->
-                (min(y1, y2)..max(y1, y2)).forEach { y ->
+            first.xRangeTo(second).forEach { x ->
+                first.yRangeTo(second).forEach { y ->
                     sheet[y][x] += 1
                 }
             }
@@ -40,5 +38,5 @@ class Grid(
 
     fun numberOfOverlappingLines() = sheet.sumOf { row -> row.count { it >= 2 } }
 
-    private fun diagonal(x1: Int, y1: Int, x2: Int, y2: Int): Boolean = x1 != x2 && y1 != y2
+    private fun diagonal(first: Point, second: Point): Boolean = first.x != second.x && first.y != second.y
 }
