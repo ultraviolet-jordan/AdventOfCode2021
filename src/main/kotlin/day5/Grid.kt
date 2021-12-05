@@ -19,17 +19,16 @@ class Grid(
         val diagonal = diagonal(first, second)
         if (diagonal && traverseDiagonally.not()) return
         if (diagonal) {
-            var x = first.x
-            var y = first.y
-            while (true) {
-                points[y][x] += 1
-                if (x == second.x) break
-                x = if (second.x > x) ++x else --x
-                y = if (second.y > y) ++y else --y
+            if (first.x > second.x) {
+                traverseAndPlot(second, first, traverseDiagonally)
+            } else {
+                rangeX(first, second).forEachIndexed { index, x ->
+                    points[nextY(first, second, index)][x] += 1
+                }
             }
         } else {
-            (min(first.x, second.x)..max(first.x, second.x)).forEach { x ->
-                (min(first.y, second.y)..max(first.y, second.y)).forEach { y ->
+            rangeX(first, second).forEach { x ->
+                rangeY(first, second).forEach { y ->
                     points[y][x] += 1
                 }
             }
@@ -39,4 +38,7 @@ class Grid(
     fun numberOfOverlappingLines() = points.sumOf { row -> row.count { it >= 2 } }
 
     private fun diagonal(first: Point, second: Point): Boolean = first.x != second.x && first.y != second.y
+    private fun rangeX(first: Point, second: Point): IntRange = (min(first.x, second.x)..max(first.x, second.x))
+    private fun rangeY(first: Point, second: Point): IntRange = (min(first.y, second.y)..max(first.y, second.y))
+    private fun nextY(first: Point, second: Point, index: Int): Int = if (second.y >= first.y) first.y + index else first.y - index
 }
