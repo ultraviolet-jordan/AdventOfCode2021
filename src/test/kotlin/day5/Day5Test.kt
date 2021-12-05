@@ -1,5 +1,6 @@
 package day5
 
+import listOf
 import logger
 import timeOf
 import java.lang.System.Logger.Level.INFO
@@ -16,7 +17,7 @@ class Day5Test {
     fun `test example 1`() {
         val time = measureTimeMillis {
             assertEquals(
-                0,
+                5,
                 Day5.part1(listOf("/day5/example.txt"))
             )
         }
@@ -27,7 +28,7 @@ class Day5Test {
     fun `test example 2`() {
         val time = measureTimeMillis {
             assertEquals(
-                0,
+                12,
                 Day5.part2(listOf("/day5/example.txt"))
             )
         }
@@ -38,7 +39,7 @@ class Day5Test {
     fun `test solution 1`() {
         val time = measureTimeMillis {
             assertEquals(
-                0,
+                7644,
                 Day5.part1(listOf("/day5/input.txt"))
             )
         }
@@ -49,7 +50,7 @@ class Day5Test {
     fun `test solution 2`() {
         val time = measureTimeMillis {
             assertEquals(
-                0,
+                18627,
                 Day5.part2(listOf("/day5/input.txt"))
             )
         }
