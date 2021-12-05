@@ -9,7 +9,7 @@ import kotlin.math.min
 class Grid(
     size: Int
 ) {
-    private val sheet = Array(size + 1) { IntArray(size + 1) { 0 } }
+    private val sheet = Array(size) { IntArray(size) { 0 } }
 
     fun traverseAndPlot(
         x1: Int,
