@@ -37,5 +37,5 @@ object Day5 : Day<List<String>, Int> {
 
     private fun List<String>.toGridPoints(): List<List<String>> = map { it.split(Regex("\\s->\\s")) }
     private fun List<List<String>>.maxOf(): Int = (map { max(it.first().split(",").first().toInt(), it.last().split(",").first().toInt()) }.maxOrNull() ?: 0) + 1
-    private fun String.toPoint(): Point = Point(split(",").first().toInt(), split(",").last().toInt())
+    private fun String.toPoint(): Point = with(split(",")) { Point(first().toInt(), last().toInt()) }
 }
