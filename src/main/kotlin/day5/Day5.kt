@@ -14,8 +14,8 @@ object Day5 : Day<List<String>, Int> {
             points.forEach {
                 traverseAndPlot(
                     it.first().split(",").first().toInt(),
-                    it.last().split(",").first().toInt(),
                     it.first().split(",").last().toInt(),
+                    it.last().split(",").first().toInt(),
                     it.last().split(",").last().toInt()
                 )
             }
@@ -29,8 +29,8 @@ object Day5 : Day<List<String>, Int> {
             points.forEach {
                 traverseAndPlot(
                     it.first().split(",").first().toInt(),
-                    it.last().split(",").first().toInt(),
                     it.first().split(",").last().toInt(),
+                    it.last().split(",").first().toInt(),
                     it.last().split(",").last().toInt(),
                     true
                 )
