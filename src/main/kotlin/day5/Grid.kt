@@ -28,8 +28,8 @@ class Grid(
                 y = if (second.y > y) ++y else --y
             }
         } else {
-            first.xRangeTo(second).forEach { x ->
-                first.yRangeTo(second).forEach { y ->
+            (min(first.x, second.x)..max(first.x, second.x)).forEach { x ->
+                (min(first.y, second.y)..max(first.y, second.y)).forEach { y ->
                     sheet[y][x] += 1
                 }
             }
