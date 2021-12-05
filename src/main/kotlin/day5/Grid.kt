@@ -22,7 +22,7 @@ class Grid(
             if (first.x > second.x) {
                 traverseAndPlot(second, first, traverseDiagonally)
             } else range(first.x, second.x).forEachIndexed { index, x ->
-                plot(nextY(first, second, index), x)
+                plot(if (second.y > first.y) first.y + index else first.y - index, x)
             }
         } else range(first.x, second.x).forEach { x ->
             range(first.y, second.y).forEach { y -> plot(y, x) }
@@ -34,5 +34,4 @@ class Grid(
     private fun plot(y: Int, x: Int) = with(points) { this[y][x] += 1 }
     private fun diagonal(first: Point, second: Point): Boolean = first.x != second.x && first.y != second.y
     private fun range(from: Int, to: Int): IntRange = (min(from, to)..max(from, to))
-    private fun nextY(first: Point, second: Point, index: Int): Int = if (second.y > first.y) first.y + index else first.y - index
 }
