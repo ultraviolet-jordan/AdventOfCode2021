@@ -27,8 +27,6 @@ class Grid(
         } else range(from.x, to.x).forEach { x ->
             range(from.y, to.y).forEach { y -> plot(y, x) }
         }
-
-        val idk = from to to
     }
 
     fun numberOfOverlappingLines() = points.sumOf { row -> row.count { it >= 2 } }

@@ -1,7 +1,7 @@
 package day3
 
 import Day
-import java.util.*
+import java.util.Collections
 
 /**
  * @author Jordan Abraham

@@ -1,6 +1,7 @@
 package day4
 
 import Day
+import splitToList
 
 /**
  * @author Jordan Abraham
@@ -8,11 +9,9 @@ import Day
 object Day4 : Day<List<String>, Int> {
 
     override fun part1(input: List<String>): Int {
-        val callNumbers = input.first().split(",").map { it.toInt() }
-
         val boards = createBoards(input)
 
-        callNumbers.forEach { number ->
+        input.splitToList<Int>(",").forEach { number ->
             boards.forEach { it.mark(number) }
             val winners = checkWinners(boards)
             if (winners.isNotEmpty()) {
@@ -24,7 +23,7 @@ object Day4 : Day<List<String>, Int> {
     }
 
     override fun part2(input: List<String>): Int {
-        val callNumbers = input.first().split(",").map { it.toInt() }
+        val callNumbers = input.splitToList<Int>(",")
 
         val boards = createBoards(input)
 
