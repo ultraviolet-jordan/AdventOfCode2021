@@ -16,3 +16,9 @@ tasks.withType<Test> {
         testImplementation("org.jetbrains.kotlin:kotlin-test")
     }
 }
+
+tasks {
+    compileTestKotlin {
+        kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.time.ExperimentalTime")
+    }
+}
