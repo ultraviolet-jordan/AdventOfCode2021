@@ -11,7 +11,7 @@ object Day4 : Day<List<String>, Int> {
     override fun part1(input: List<String>): Int {
         val boards = createBoards(input)
 
-        input.listOfSplit<Int>(",").forEach { number ->
+        input.first().listOfSplit<Int>(",").forEach { number ->
             boards.forEach { it.mark(number) }
             val winners = checkWinners(boards)
             if (winners.isNotEmpty()) {
@@ -23,7 +23,7 @@ object Day4 : Day<List<String>, Int> {
     }
 
     override fun part2(input: List<String>): Int {
-        val callNumbers = input.listOfSplit<Int>(",")
+        val callNumbers = input.first().listOfSplit<Int>(",")
 
         val boards = createBoards(input)
 
