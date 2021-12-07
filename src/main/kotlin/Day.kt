@@ -6,7 +6,7 @@ interface Day<T, R> {
     fun part2(input: T): R
 }
 
-inline fun <reified T> String.splitToList(deliminator: String): List<T> = split(deliminator).map {
+inline fun <reified T> String.listOfSplit(deliminator: String): List<T> = split(deliminator).map {
     when (T::class) {
         Int::class -> it.toInt() as T
         String::class -> it as T
@@ -14,7 +14,7 @@ inline fun <reified T> String.splitToList(deliminator: String): List<T> = split(
     }
 }
 
-inline fun <reified T> List<String>.splitToList(deliminator: String): List<T> = map {
+inline fun <reified T> List<String>.listOfSplit(deliminator: String): List<T> = map {
     it.split(deliminator).map { string ->
         when (T::class) {
             Int::class -> string.toInt() as T
