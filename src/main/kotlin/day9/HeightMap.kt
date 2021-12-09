@@ -9,13 +9,10 @@ class HeightMap(
 ) {
     fun findLowestPoints(): List<Point> = points.filter { point -> surrounding(point).none { it.height <= point.height } }
 
-    fun nextBasin(currentBasin: Set<Point>): Set<Point> {
-        val nextBasin = with(currentBasin.toMutableSet()) {
-            map { point -> surrounding(point, true) }.forEach { addAll(it) }
-            this
-        }
-        if (nextBasin.size != currentBasin.size) return nextBasin(nextBasin)
-        return nextBasin
+    fun nextBasin(currentBasin: Set<Point>): Set<Point> = with(currentBasin.toMutableSet()) {
+        map { point -> surrounding(point, true) }.forEach { addAll(it) }
+        if (size != currentBasin.size) return nextBasin(this)
+        return this
     }
 
     private fun surrounding(
